@@ -1,0 +1,9 @@
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  &__box {
+    display: flex;
+  }
+}

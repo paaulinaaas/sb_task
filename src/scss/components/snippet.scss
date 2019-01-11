@@ -1,0 +1,19 @@
+@import "./../common/base";
+
+.snippet {
+  box-sizing: border-box;
+  margin: 2rem;
+  padding: 4rem;
+  border: 0.25rem solid $color-grey;
+  background: $color-dark;
+  @media #{$mediaMedium} {
+    margin: 4rem auto;
+    max-width: 40rem;
+  }
+  &__buttons {
+    //display: flex;
+    @media #{$mediaMedium} {
+      //flex-direction: column;
+    }
+  }
+}

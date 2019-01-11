@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+$color-base: #fff;
+$color-green: #0E9E87;
+$color-dark-green: #0C7C68;
+$color-dark: #110F0F;
+$color-grey: #7f8b91;
+$color-dark-grey: #42505C;
+
+$mediaSmall:   "only screen and (min-width : 480px)";
+$mediaMedium:   "only screen and (min-width : 768px)";
+$mediaLarge:   "only screen and (min-width : 1080px)";
+
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  background: url("https://images.pexels.com/photos/1432942/pexels-photo-1432942.jpeg?cs=srgb&dl=american-cheerful-colleagues-1432942.jpg&fm=jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.darken-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding:0;
+  margin: 0;
+}
+.heading-1 {
+
+}
+
+.heading-2 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: $color-green;
+}
