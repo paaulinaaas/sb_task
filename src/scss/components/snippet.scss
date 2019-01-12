@@ -1,0 +1,15 @@
+@import "./../common/base";
+
+.snippet {
+  box-sizing: border-box;
+  background-color: $color-grey;
+  height: 100%;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: 1s ease-out 0s 1 rotate;
+  @media #{$mediaMedium} {
+    padding: 4rem;
+  }
+}

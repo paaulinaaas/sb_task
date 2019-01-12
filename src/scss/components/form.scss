@@ -1,0 +1,11 @@
+.form {
+  height: 0;
+  opacity: 0;
+  color: $color-dark-grey;
+}
+
+.form.active {
+  height: auto;
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
