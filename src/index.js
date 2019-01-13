@@ -27,6 +27,8 @@ const formValidate = () => {
     for (let i = 0; i <inputs.length; i++) {
         inputs[i].classList.remove('warning');
         if (!inputs[i].value) {
+            console.log(inputs[i])
+            console.log('a')
             inputs[i].classList.add('warning')
         }
         let inputType = inputs[i].getAttribute('type')
@@ -49,4 +51,6 @@ const validateEmail = (email) => {
 buttons.forEach((btn) => {
     btn.addEventListener('click', toggleForm)
 })
-document.querySelector('.input__submit').addEventListener('click', formValidate)
+document.querySelectorAll('.input__submit').forEach((submit) => {
+    submit.addEventListener('click', formValidate)
+})
