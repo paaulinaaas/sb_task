@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        'bundle.js': [
+        'dist/bundle.js': [
             path.resolve(__dirname, 'src/index.js'),
             // here add more js files
         ]
