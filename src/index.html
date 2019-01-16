@@ -3,67 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Log in/Sign up Form</title>
 </head>
 <body>
-<section class="snippet">
+<section class="container mt-5">
     <h1 class="heading-1 visually-hidden">Log in / Sign up Form</h1>
-    <div>
-        <button id="signupSwitch" class="btn btn__signup">Sign Up</button>
-        <button id="loginSwitch" class="btn btn__login">Log In</button>
+    <div class="row mb-3">
+        <div class="col-6 pr-0">
+            <button id="signupSwitch" class="btn btn__signup">Sign Up</button>
+        </div>
+        <div class="col-6 pl-0">
+            <button id="loginSwitch" class="btn btn__login">Log In</button>
+        </div>
     </div>
-    <form id="signupForm" class="form">
-        <h2 class="heading-2">Sign Up for Free</h2>
-        <fieldset class="fieldset">
-            <label class="visually-hidden" for="signupName">First Name</label>
-            <input class="input input--small" id="signupName"
-                   type="text"
-                   placeholder="First Name*"
-                   required>
+    <div class="row">
+        <form id="signupForm" class="form col-12" on-submit="function(){}">
+            <h2 class="heading-2">Sign Up for Free</h2>
+            <fieldset class="fieldset">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <label class="visually-hidden" for="signupName">First Name</label>
+                        <input class="input input--small" id="signupName"
+                               type="text"
+                               placeholder="First Name*"
+                               required
+                               oninvalid="this.setCustomValidity('Your first name is required (or any other custom message)')"
+                               oninput="this.setCustomValidity('')">
+                    </div>
 
-            <label class="visually-hidden" for="signupSurname">Last Name</label>
-            <input class="input input--small" id="signupSurname"
-                   type="text"
-                   placeholder="Last Name*"
-                   required>
+                    <div class="col-12 col-sm-6">
+                        <label class="visually-hidden" for="signupSurname">Last Name</label>
+                        <input class="input input--small" id="signupSurname"
+                               type="text"
+                               placeholder="Last Name*"
+                               required
+                               oninvalid="this.setCustomValidity('Your last name is required (or any other custom message)')"
+                               oninput="this.setCustomValidity('')">
+                    </div>
+                </div>
 
-            <label class="visually-hidden" for="signupEmail">Email Adress</label>
-            <input class="input" id="signupEmail"
-                   type="email"
-                   placeholder="Email Address*"
-                   required>
+                <label class="visually-hidden" for="signupEmail">Email Adress</label>
+                <input class="input" id="signupEmail"
+                       type="email"
+                       placeholder="Email Address*"
+                       required
+                       oninvalid="this.setCustomValidity('Please enter your email address (or any other custom message)')"
+                       oninput="this.setCustomValidity('')">
 
-            <label class="visually-hidden" for="signupPassword">Set a Password</label>
-            <input class="input" id="signupPassword"
-                   type="password"
-                   placeholder="Set a Password*"
-                   required>
+                <label class="visually-hidden" for="signupPassword">Set a Password</label>
+                <input class="input" id="signupPassword"
+                       type="password"
+                       placeholder="Set a Password*"
+                       required>
 
-            <input class="input input__submit" type="submit" value="get started" id="signupSubmit">
-        </fieldset>
-    </form>
-    <form id="loginForm" class="form">
-        <h2 class="heading-2">Welcome Back!</h2>
-        <fieldset class="fieldset">
-            <label class="visually-hidden" for="loginEmail">Email Adress</label>
-            <input class="input" id="loginEmail"
-                   type="email"
-                   placeholder="Email Address*"
-                   required
-                   oninvalid="this.setCustomValidity('Please enter an email address (or any other custom message)')"
-                   oninput="this.setCustomValidity('')">
+                <input class="input input__submit" type="submit" value="get started" id="signupSubmit">
+            </fieldset>
+        </form>
+    </div>
+    <div class="row">
+        <form id="loginForm" class="form col-12">
+            <h2 class="heading-2">Welcome Back!</h2>
+            <fieldset class="fieldset">
+                <label class="visually-hidden" for="loginEmail">Email Adress</label>
+                <input class="input" id="loginEmail"
+                       type="email"
+                       placeholder="Email Address*"
+                       required
+                       oninvalid="this.setCustomValidity('Please enter an email address (or any other custom message)')"
+                       oninput="this.setCustomValidity('')">
 
-            <label class="visually-hidden" for="loginPassword">Set a Password</label>
-            <input class="input" id="loginPassword"
-                   type="password"
-                   placeholder="Password*"
-                   required
-                   oninvalid="this.setCustomValidity('Please enter your password (or any other custom message)')"
-                   oninput="this.setCustomValidity('')">
+                <label class="visually-hidden" for="loginPassword">Set a Password</label>
+                <input class="input" id="loginPassword"
+                       type="password"
+                       placeholder="Password*"
+                       required
+                       oninvalid="this.setCustomValidity('Please enter your password (or any other custom message)')"
+                       oninput="this.setCustomValidity('')">
 
-            <input class="input input__submit" type="submit" value="log in" id="loginSubmit">
-        </fieldset>
-    </form>
+                <input class="input input__submit" type="submit" value="log in" id="loginSubmit">
+            </fieldset>
+        </form>
+    </div>
 </section>
 </body>
 </html>

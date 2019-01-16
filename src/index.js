@@ -53,10 +53,50 @@ function removeActiveClasses() {
     });
 }
 
-function validateLoginForm() {
-    console.log('should validate login form');
+function validateSignupForm() {
+    const signupForm = {
+        signupName: document.getElementById('signupName'),
+        signupSurname: document.getElementById('signupSurname'),
+        signupEmail: document.getElementById('signupEmail'),
+        signupPassword: document.getElementById('signupPassword')
+    };
+
+    if (isFormValid(signupForm)) {
+        submitForm(forms.signup, signupForm);
+    }
 }
 
-function validateSignupForm() {
-    console.log('should validate signup form');
+function validateLoginForm() {
+    const loginForm = {
+        loginEmail: document.getElementById('loginEmail'),
+        loginPassword: document.getElementById('loginPassword')
+    };
+
+    if (isFormValid(loginForm)) {
+        submitForm(forms.login, loginForm);
+    }
+}
+
+function isFormValid(form) {
+    // Loops over all elements in the form and then checks the validity via HTML5 validations
+    for (const key of Object.keys(form)) {
+        if (!form[key].checkValidity()) {
+            // if any value of the checkValidity() method returns false then the form is invalid
+            console.log('form is invalid!')
+            return false;
+        }
+    }
+
+    // if all checkValidity()'s pass then the form is valid
+    return true;
+}
+
+function submitForm(type, form) {
+    const formData = {};
+    // Loops over all elements in the form and then gets the values from the inputs
+    for (const key of Object.keys(form)) {
+        formData[key] = form[key].value;
+    }
+
+    console.log(`submit ${type}Form =>`, formData);
 }

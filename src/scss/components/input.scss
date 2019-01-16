@@ -20,21 +20,21 @@
     cursor: pointer;
     transition: .4s;
     outline: none;
-    @media #{$mediaMedium} {
-      font-size: 2rem;
-    }
+    //@media #{$mediaMedium} {
+    //  font-size: 2rem;
+    //}
     &:hover {
       background-color: $color-dark-green;
     }
   }
-  &--small {
-    @media #{$mediaMedium} {
-      width: 48%;
-      &:nth-of-type(2n) {
-        margin-left: 4%;
-      }
-    }
-  }
+  //&--small {
+  //  @media #{$mediaMedium} {
+  //    width: 48%;
+  //    &:nth-of-type(2n) {
+  //      margin-left: 4%;
+  //    }
+  //  }
+  //}
 }
 
 .warning {
