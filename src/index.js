@@ -1,82 +1,57 @@
 import style from './scss/style.scss';
 
-const inputs = document.querySelectorAll('.input');
-const buttons = document.querySelectorAll('.btn');
+// const inputs = document.querySelectorAll('.input');
+const buttonElements = document.querySelectorAll('.btn');
+const formElements = document.querySelectorAll('form');
 
 // overview of all forms that are available
 const forms = {
     signup: 'signup',
     login: 'login'
 };
-let activeForm = forms.signup; // default active is signup;
+let activeForm = forms.signup; // default active form is signup;
+
+
+initialize();
 
 function initialize() {
-    console.log('initialized!');
-    document.getElementById('signupSwitch').addEventListener('click', switchToSignupForm);
-    document.getElementById('loginSwitch').addEventListener('click', switchToLoginForm);
+    setActiveClasses();
+
+    document.getElementById('signupSwitch').addEventListener('click', () => switchToForm(forms.signup));
+    document.getElementById('loginSwitch').addEventListener('click', () => switchToForm(forms.login));
 
     document.getElementById('signupSubmit').addEventListener('click', validateSignupForm);
     document.getElementById('loginSubmit').addEventListener('click', validateLoginForm);
 }
 
-initialize();
-
-function switchToSignupForm() {
-    if (activeForm === forms.signup) {
-        return; // do nothing when the active form is already 'signup'
+function switchToForm(type) {
+    if (activeForm === type) {
+        return; // do nothing when the active form is already the given type
     }
 
-    activeForm = forms.signup;
-    console.log('should switch to signup form');
+    activeForm = type;
+    removeActiveClasses();
+    setActiveClasses();
+
+    console.log(`switched to ${type} form`);
     console.log('activeForm', activeForm);
 }
 
-function switchToLoginForm() {
-    if (activeForm === forms.login) {
-        return; // do nothing when the active form is already 'login'
-    }
-
-    activeForm = forms.login;
-    console.log('should switch to login form');
-    console.log('activeForm', activeForm);
+function setActiveClasses() {
+    // FIXME 1: this could be done way better by adding a class to the element conditionally based on the activeForm, but for now I'll leave this as is
+    document.getElementById(`${activeForm}Switch`).classList.add('btn--active');
+    document.getElementById(`${activeForm}Form`).classList.add('active');
 }
 
-// function toggleForm() {
-//     inputs.forEach(input => {
-//         input.classList.remove('warning')
-//     });
-//
-//     buttons.forEach(() => {
-//         // FIXME: Not sure why this is here
-//         // buttons.forEach(btn => {
-//         //     btn.classList.remove('btn--active')
-//         // })
-//         event.target.classList.add('btn--active')
-//         if(event.target.classList.contains('btn__signup')) {
-//             document.getElementById('logIn').classList.remove('active')
-//             document.getElementById('signUp').classList.add('active')
-//         } else if (event.target.classList.contains('btn__login')) {
-//             document.getElementById('signUp').classList.remove('active')
-//             document.getElementById('logIn').classList.add('active') // let login = true to let signup = false
-//         }
-//     });
-// }
-
-// function formValidate() {
-//     console.log('should validate form');
-//
-//     // for (let i = 0; i <inputs.length; i++) {
-//     //     inputs[i].classList.remove('warning');
-//     //     if (!inputs[i].value) {
-//     //         console.log(inputs[i]);
-//     //         inputs[i].classList.add('warning')
-//     //     }
-//     //     let inputType = inputs[i].getAttribute('type')
-//     //     if (inputType == 'email') {
-//     //         validateEmail(inputs[i].value)
-//     //     }
-//     // }
-// }
+function removeActiveClasses() {
+    // FIXME 2: this could be done way better by adding a class to the element conditionally based on the activeForm, but for now I'll leave this as is
+    buttonElements.forEach(btnEle => {
+        btnEle.classList.remove('btn--active');
+    });
+    formElements.forEach(formEle => {
+        formEle.classList.remove('active');
+    });
+}
 
 function validateLoginForm() {
     console.log('should validate login form');
@@ -85,8 +60,3 @@ function validateLoginForm() {
 function validateSignupForm() {
     console.log('should validate signup form');
 }
-
-// //EMAIL VALIDATION (for adding extra 'warning' class when not valid)
-// function validateEmail(email) {
-//     return /\S+@\S+\.\S+/.test(email);
-// }
